@@ -13,7 +13,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String LOOKUP_PN      = "GN";
-    public static final String CHECK_SAME_PN  = "EP";
+    public static final String EQUAL_PHONES   = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -60,8 +60,8 @@ public class Main {
                 case LOOKUP_PN:
                     lookupContactByPhone(in,cBook);
                     break;
-                case CHECK_SAME_PN:
-                    checkDuplicatePhoneNumbers(cBook);
+                case EQUAL_PHONES:
+                    checkEqualPhones(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -74,7 +74,7 @@ public class Main {
         in.close();
     }
 
-    private static void checkDuplicatePhoneNumbers(ContactBook cBook) {
+    private static void checkEqualPhones(ContactBook cBook) {
         if(cBook.hasDuplicatePhoneNumbers()){
             System.out.println(DUPLICATE_PN);
         } else {
@@ -85,7 +85,6 @@ public class Main {
     private static void lookupContactByPhone(Scanner in, ContactBook cBook) {
         int phone = in.nextInt();in.nextLine();
         String name = cBook.getNameByPhone(phone);
-
         System.out.println(Objects.requireNonNullElse(name, PN_NOT_FOUND));
     }
 

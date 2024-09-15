@@ -120,4 +120,20 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+
+
+    public boolean checkEqualPhones() {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < counter) {
+            int j = i + 1;
+            while (!found && j < counter) {
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    found = true;
+                j++;
+            }
+            i++;
+        }
+        return found;
+    }
 }
