@@ -65,14 +65,6 @@ public class ContactBook {
         return result;
     }
 
-    /**
-     * Checks if there are contacts with the same phone number
-     * @return true if 1 or more contacts have the same number, false otherwise
-     */
-    public boolean hasDuplicatePhoneNumbers(){
-        return true;
-    }
-
     //Pre: name != null && hasContact(name)
     public String getEmail(String name) {
         return contacts[searchIndex(name)].getEmail();
@@ -120,9 +112,11 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
-
-
-    public boolean checkEqualPhones() {
+    /**
+     * Checks if there are contacts with the same phone number
+     * @return true if 1 or more contacts have the same number, false otherwise
+     */
+    public boolean hasDuplicatePhoneNumbers() {
         boolean found = false;
         int i = 0;
         while (!found && i < counter) {
